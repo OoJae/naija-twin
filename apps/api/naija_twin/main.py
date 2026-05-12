@@ -6,10 +6,14 @@ to call persona memory, retrieval, and generation services.
 
 from contextlib import asynccontextmanager
 
+from dotenv import load_dotenv
 from fastapi import FastAPI
+from langfuse import observe
 from pydantic import BaseModel
 
 from naija_twin.memory import get_episodic, get_persona_summary, update_memory
+
+load_dotenv()
 
 
 @asynccontextmanager
@@ -40,6 +44,19 @@ class ToolInfo(BaseModel):
 async def healthz():
     """Health check endpoint for container orchestration."""
     return HealthResponse(status="ok", service="naija-twin-api")
+
+
+@observe()
+def _create_test_trace():
+    """Traced function that Langfuse will capture via OpenTelemetry."""
+    return {"status": "ok", "service": "naija-twin-api", "traced": True}
+
+
+@app.get("/trace-test")
+async def trace_test():
+    """Create a test trace in Langfuse to verify the connection."""
+    result = _create_test_trace()
+    return result
 
 
 MCP_TOOLS = [
