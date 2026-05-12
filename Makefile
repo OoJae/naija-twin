@@ -1,4 +1,4 @@
-.PHONY: setup dev reproduce eval paper lint test clean
+.PHONY: setup dev demo reproduce eval paper lint test clean
 
 setup:
 	pnpm install
@@ -6,6 +6,10 @@ setup:
 	@echo "Setup complete. Copy .env.example to .env and fill in your keys."
 
 dev:
+	pnpm dev
+
+demo:
+	docker compose up -d
 	pnpm dev
 
 reproduce:

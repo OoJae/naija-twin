@@ -4,7 +4,6 @@ Exposes MCP-compatible tool endpoints for the Vercel AI SDK frontend
 to call persona memory, retrieval, and generation services.
 """
 
-import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI

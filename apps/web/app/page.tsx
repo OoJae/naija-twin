@@ -22,13 +22,13 @@ export default function Home() {
           <div className="rounded-lg border p-4">
             <div className="text-2xl font-bold">TBD</div>
             <div className="text-xs text-muted-foreground">
-              Task A NDCG@10
+              NDCG@10
             </div>
           </div>
           <div className="rounded-lg border p-4">
             <div className="text-2xl font-bold">TBD</div>
             <div className="text-xs text-muted-foreground">
-              Task B NDCG@10
+              RMSE
             </div>
           </div>
           <div className="rounded-lg border p-4">
@@ -38,7 +38,7 @@ export default function Home() {
           <div className="rounded-lg border p-4">
             <div className="text-2xl font-bold">TBD</div>
             <div className="text-xs text-muted-foreground">
-              Cold-Start Hit Rate
+              Nigerian-fit
             </div>
           </div>
         </div>

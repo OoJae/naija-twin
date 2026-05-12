@@ -2,7 +2,7 @@
 
 **Your AI twin that thinks Naija.**
 
-A unified agentic system for user modeling and recommendation, built for the DSN x BCT LLM Agent Challenge 3.0. One shared persona memory brain drives two coupled agents: a User Simulator (Task A) and a Recommender (Task B).
+Most LLM recommendation systems treat user modeling and recommendation as two separate pipelines. Naija-Twin collapses them into one. A single persona memory brain drives both a User Simulator (Task A: reviews and ratings) and a Recommender (Task B: cold-start, cross-domain, multi-turn). Every improvement to the persona lifts both tasks at once. The system speaks authentic Nigerian English across five registers, validated by AfriBERTa, and is evaluated on a 200-item Nigerian-fit benchmark built from scratch.
 
 ## Architecture: Twin-Loop
 
@@ -34,12 +34,12 @@ A unified agentic system for user modeling and recommendation, built for the DSN
 
 ## Headline Metrics
 
-| Metric | Score | Baseline |
-|--------|-------|----------|
-| Task A NDCG@10 | TBD | TBD |
-| Task B NDCG@10 | TBD | TBD |
-| Faithfulness | TBD | TBD |
-| Cold-Start Hit Rate | TBD | TBD |
+| Metric | Target | Baseline |
+|--------|--------|----------|
+| NDCG@10 (unified test split) | >= 0.45 | P5 zero-shot ~0.32 |
+| RMSE (Amazon Books rating) | <= 1.00 | GPT-4o zero-shot ~1.12 |
+| Faithfulness rate (NLI entailment) | >= 90% | Untuned GPT-4o ~73% |
+| Nigerian-fit (200-item benchmark) | >= 70% | Untuned Claude 3.5 ~45% |
 
 ## Quickstart
 
