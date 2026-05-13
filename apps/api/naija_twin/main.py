@@ -5,6 +5,7 @@ to call persona memory, retrieval, and generation services.
 """
 
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
@@ -13,7 +14,8 @@ from pydantic import BaseModel
 
 from naija_twin.memory import get_episodic, get_persona_summary, update_memory
 
-load_dotenv()
+# Load .env from monorepo root (three levels up from this file)
+load_dotenv(Path(__file__).resolve().parents[3] / ".env")
 
 
 @asynccontextmanager
