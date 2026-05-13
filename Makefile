@@ -6,10 +6,11 @@ setup:
 	@echo "Setup complete. Copy .env.example to .env and fill in your keys."
 
 dev:
+	cd apps/api && uv run uvicorn naija_twin.main:app --port 8000 &
 	pnpm dev
 
 demo:
-	docker compose up -d
+	cd apps/api && uv run uvicorn naija_twin.main:app --port 8000 &
 	pnpm dev
 
 reproduce:

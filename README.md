@@ -45,7 +45,7 @@ Most LLM recommendation systems treat user modeling and recommendation as two se
 
 ```bash
 # Clone and enter
-git clone https://github.com/your-org/naija-twin.git
+git clone https://github.com/OoJae/naija-twin.git
 cd naija-twin
 
 # Configure environment
@@ -56,12 +56,17 @@ cp .env.example .env
 pnpm install
 cd apps/api && uv sync && cd ../..
 
-# Start services
-docker compose up -d
+# Run (uses cloud Neon + Upstash, no Docker needed for dev)
+make dev
+# Next.js frontend: http://localhost:3000
+# FastAPI sidecar:  http://localhost:8000
+```
 
-# Run development servers
-pnpm dev          # Next.js frontend on http://localhost:3000
-cd apps/api && uv run uvicorn naija_twin.main:app --reload  # FastAPI on http://localhost:8000
+### Production (Docker)
+
+```bash
+docker compose up -d
+# Boots local Postgres + Redis + FastAPI container
 ```
 
 ## Example: Adekunle from Wuse
